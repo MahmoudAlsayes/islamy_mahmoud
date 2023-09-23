@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/hadeth_details.dart';
 import 'package:islami/hadeth_model.dart';
 import 'package:islami/myThemeData.dart';
 
@@ -9,33 +10,51 @@ class AhadethTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     loadHadeth();
-    return Column(
-      children: [
-        Center(
-          child: Image.asset("assets/images/ahadeth_image.png"),
-        ),
-        Divider(
-          thickness: 3,
-          color: MyThemeData.primaryColor,
-        ),
-        Text(
-          "Ahadeth",
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        Divider(
-          height: 2,
-          thickness: 2,
-          color: MyThemeData.primaryColor,
-        ),
-        Expanded(
-          child: ListView.builder(
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Center(
+            child: Image.asset("assets/images/ahadeth_image.png"),
+          ),
+          Divider(
+            thickness: 3,
+            color: MyThemeData.primaryColor,
+          ),
+          Text(
+            "Ahadeth",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          Divider(
+            height: 2,
+            thickness: 2,
+            color: MyThemeData.primaryColor,
+          ),
+          ListView.separated(
+            separatorBuilder: (context, index) => Divider(
+              endIndent: 40,
+              indent: 40,
+              thickness: 1,
+              color: MyThemeData.primaryColor,
+            ),
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
             itemBuilder: (context, index) {
-              return Text(allAhadeth[index].title);
+              return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, HadethDetails.routeName,
+                      arguments: allAhadeth[index]);
+                },
+                child: Text(
+                  allAhadeth[index].title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              );
             },
             itemCount: allAhadeth.length,
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 
