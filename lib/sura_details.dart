@@ -21,9 +21,6 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     if (Verses.isEmpty) {
       loadFile(args.index);
 
-
-
-
     }
     return Container(
       decoration: BoxDecoration(
