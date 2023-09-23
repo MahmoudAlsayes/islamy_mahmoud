@@ -4,6 +4,8 @@ import 'package:islami/myThemeData.dart';
 import 'package:islami/soura_model.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
+
+
   static const String routeName = "SuraDetails";
 
   @override
