@@ -20,6 +20,10 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if (Verses.isEmpty) {
       loadFile(args.index);
+
+
+
+
     }
     return Container(
       decoration: BoxDecoration(
