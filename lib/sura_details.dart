@@ -8,22 +8,22 @@ class SuraDetailsScreen extends StatefulWidget {
 
   static const String routeName = "SuraDetails";
 
-  @override
+  const SuraDetailsScreen({super.key});
 
+  @override
   State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
 }
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
-  List<String> Verses = [];
+  List<String> verses = [];
 
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    if (Verses.isEmpty) {
+    if (verses.isEmpty) {
       loadFile(args.index);
-
     }
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/background.png"),
           fit: BoxFit.cover,
@@ -55,13 +55,13 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               itemBuilder: (context, index) {
                 return Center(
                   child: Text(
-                    Verses[index],
+                    verses[index],
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 );
               },
-              itemCount: Verses.length,
+              itemCount: verses.length,
             ),
           ),
         ),
@@ -71,8 +71,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   loadFile(int index) async {
     String file = await rootBundle.loadString("assets/files/${index + 1}.txt");
     List<String> lines = file.split("\n");
-    print(lines);
+    debugPrint(lines.toString());
     setState(() {});
-    Verses = lines;
+    verses = lines;
   }
 }

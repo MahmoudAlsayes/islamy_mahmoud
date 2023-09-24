@@ -3,6 +3,7 @@ import 'package:islami/myThemeData.dart';
 import 'package:islami/soura_model.dart';
 import 'package:islami/sura_details.dart';
 
+// ignore: must_be_immutable
 class QuranTab extends StatelessWidget {
   QuranTab({super.key});
 

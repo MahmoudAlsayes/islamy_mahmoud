@@ -9,6 +9,8 @@ import 'package:islami/tabs/setting_tab.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/";
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -40,35 +42,35 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             items: [
               BottomNavigationBarItem(
-                icon: ImageIcon(
+                icon: const ImageIcon(
                   AssetImage("assets/images/quran.png"),
                 ),
                 label: "quran",
                 backgroundColor: MyThemeData.primaryColor,
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(
+                icon: const ImageIcon(
                   AssetImage("assets/images/sebha.png"),
                 ),
                 label: "sebha",
                 backgroundColor: MyThemeData.primaryColor,
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(
+                icon: const ImageIcon(
                   AssetImage("assets/images/radio.png"),
                 ),
                 label: "radio",
                 backgroundColor: MyThemeData.primaryColor,
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(
+                icon: const ImageIcon(
                   AssetImage("assets/images/ahadeth.png"),
                 ),
                 label: "ahadeth",
                 backgroundColor: MyThemeData.primaryColor,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
+                icon: const Icon(Icons.settings),
                 label: "settings",
                 backgroundColor: MyThemeData.primaryColor,
               ),
@@ -82,9 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tab = [
     QuranTab(),
-    SebhaTab(),
-    RadioTab(),
+    const SebhaTab(),
+    const RadioTab(),
     AhadethTab(),
-    SettingTab()
+    const SettingTab()
   ];
 }
