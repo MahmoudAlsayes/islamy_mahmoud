@@ -15,42 +15,20 @@ class _SebhaTabState extends State<SebhaTab> {
   ];
   int index = 0;
   int number = 0;
+  double rot = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          // Center(
-          //   child: IconButton(
-          //     onPressed: () {
-          //       index++;
-          //       if (index == 33) {
-          //         if (number < 3) {
-          //           number++;
-          //         } else {
-          //           number = 0;
-          //         }
-          //
-          //         index = 0;
-          //       }
-          //       setState(() {});
-          //     },
-          //     splashColor: Colors.transparent,
-          //     highlightColor: Colors.transparent,
-          //
-          //     iconSize: 300,
-          //     icon: Image.asset("assets/images/seb7a.png"),
-          //   ),
-          // ),
           Center(
-            child: InkWell(
-
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () {
+            child: IconButton(
+              onPressed: () {
+                rot += 0.18;
                 index++;
                 if (index == 33) {
+                  rot = 0;
                   if (number < 3) {
                     number++;
                   } else {
@@ -59,12 +37,43 @@ class _SebhaTabState extends State<SebhaTab> {
 
                   index = 0;
                 }
-
                 setState(() {});
               },
-              child: Image.asset("assets/images/seb7a.png"),
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              iconSize: 300,
+              icon: Transform.rotate(
+                  angle: rot, child: Image.asset("assets/images/seb7a.png")),
             ),
           ),
+          // Center(
+          //   child: InkWell(
+          //
+          //     splashColor: Colors.transparent,
+          //     highlightColor: Colors.transparent,
+          //     onTap: () {
+          //       rot+=0.18;
+          //       index++;
+          //       if (index == 33) {
+          //         rot=0;
+          //         if (number < 3) {
+          //           number++;
+          //         } else {
+          //           number = 0;
+          //         }
+          //
+          //         index = 0;
+          //       }
+          //
+          //       setState(() {});
+          //
+          //     },
+          //     child: Transform.rotate(
+          //
+          //         angle:rot ,
+          //         child: Image.asset("assets/images/seb7a.png")),
+          //   ),
+          // ),
           SizedBox(
             height: 41,
           ),
