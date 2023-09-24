@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami/myThemeData.dart';
 
 class SebhaTab extends StatefulWidget {
+  const SebhaTab({super.key});
+
   @override
   State<SebhaTab> createState() => _SebhaTabState();
 }
@@ -74,32 +76,32 @@ class _SebhaTabState extends State<SebhaTab> {
           //         child: Image.asset("assets/images/seb7a.png")),
           //   ),
           // ),
-          SizedBox(
+          const SizedBox(
             height: 41,
           ),
-          Text(
+          const Text(
             "عدد التسبيح",
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
                 fontWeight: FontWeight.normal),
           ),
-          SizedBox(
+          const SizedBox(
             height: 34,
           ),
           Container(
             width: 69,
             height: 81,
             decoration: BoxDecoration(
-                color: Color(0xffd5c0a3),
+                color: const Color(0xffd5c0a3),
                 borderRadius: BorderRadius.circular(25)),
             child: Center(
                 child: Text(
-              "$index",
-              style: TextStyle(color: Colors.black),
+                  "$index",
+              style: const TextStyle(color: Colors.black),
             )),
           ),
-          SizedBox(
+          const SizedBox(
             height: 22,
           ),
           Container(
@@ -108,7 +110,7 @@ class _SebhaTabState extends State<SebhaTab> {
             decoration: BoxDecoration(
                 color: MyThemeData.primaryColor,
                 borderRadius: BorderRadius.circular(25)),
-            child: Center(child: Text("${zkr[number]}")),
+            child: Center(child: Text(zkr[number])),
           ),
         ],
       ),
