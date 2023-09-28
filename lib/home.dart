@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/myThemeData.dart';
 import 'package:islami/tabs/ahadeth_tab.dart';
 import 'package:islami/tabs/quran_tab.dart';
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              "islami",
+              AppLocalizations.of(context)!.appTitle,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
