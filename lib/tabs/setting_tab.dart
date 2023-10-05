@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:islami/myThemeData.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/bottom_sheets/themeing_bottom_sheet.dart';
+import 'package:islami/my_theme_data.dart';
+import 'package:islami/provider/my_provider.dart';
+import 'package:provider/provider.dart';
+
+import '../bottom_sheets/language_bottom_sheet.dart';
 
 class SettingTab extends StatefulWidget {
   const SettingTab({super.key});
@@ -11,6 +17,7 @@ class SettingTab extends StatefulWidget {
 class _SettingTabState extends State<SettingTab> {
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Column(
@@ -29,7 +36,9 @@ class _SettingTabState extends State<SettingTab> {
                 borderRadius: BorderRadius.circular(25),
                 border: Border.all(color: MyThemeData.primaryColor),
               ),
-              child: Text("English"),
+              child: Text(pro.languageCode == "en"
+                  ? AppLocalizations.of(context)!.eng
+                  : AppLocalizations.of(context)!.arabic),
             ),
           ),
           SizedBox(
@@ -38,7 +47,7 @@ class _SettingTabState extends State<SettingTab> {
           Text("Theneing"),
           InkWell(
             onTap: () {
-              showLanguageBottomSheet();
+              showThemingBottomSheet();
             },
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 18),
@@ -59,16 +68,28 @@ class _SettingTabState extends State<SettingTab> {
   showLanguageBottomSheet() {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true,
       shape: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.transparent),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
-          )),
-      builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.7,
+        borderSide: BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(12),
+          topRight: Radius.circular(12),
+        ),
       ),
+      builder: (context) => LanguageBottomSheet(),
+    );
+  }
+
+  showThemingBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      shape: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(12),
+          topRight: Radius.circular(12),
+        ),
+      ),
+      builder: (context) => ThemingBottomSheet(),
     );
   }
 }

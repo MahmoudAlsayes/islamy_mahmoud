@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/myThemeData.dart';
+import 'package:islami/my_theme_data.dart';
+import 'package:islami/provider/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -19,6 +21,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
     return Scaffold(
       body: Column(
         children: [
@@ -80,7 +83,7 @@ class _SebhaTabState extends State<SebhaTab> {
           Text(
             "عدد التسبيح",
             style: TextStyle(
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.background,
                 fontSize: 25,
                 fontWeight: FontWeight.normal),
           ),
@@ -95,9 +98,9 @@ class _SebhaTabState extends State<SebhaTab> {
                 borderRadius: BorderRadius.circular(25)),
             child: Center(
                 child: Text(
-              "$index",
-              style: TextStyle(color: Colors.black),
-            )),
+                  "$index",
+                  style: TextStyle(color: Colors.black),
+                )),
           ),
           SizedBox(
             height: 22,
