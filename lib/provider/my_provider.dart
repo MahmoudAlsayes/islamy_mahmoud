@@ -23,6 +23,9 @@ class MyProvider extends ChangeNotifier {
     //     languageCode="ar";
     //   }else{
     //     languageCode="en";
+
+    //
+    //
     //   }
     languageCode = langCode;
     PrefsHelper.saveLanguage(langCode);
